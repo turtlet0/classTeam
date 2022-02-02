@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -14,7 +14,7 @@ index.jsp -> web.xml (./MemberJoin.me)
 			-. action 페이지 이동 : 1. -> 2. 해당 동작 수행하는 Action 객체 생성해 객체의 메서드 호출(메서드 내에서 DB처리 동작 실행) -> 3. 반환받은 forward 객체 정보에 따라 페이지 이동
 			
 	<%
-		response.sendRedirect("./ClassAdd.cl");
+		response.sendRedirect("./ClassAdd1.cl");
 	%>		
 </body>
 </html>
