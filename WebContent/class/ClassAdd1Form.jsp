@@ -14,6 +14,7 @@
 - ClassAddAction.java 페이지에서 Session 객체 생성 및 ClassDTO 객체 생성 후 정보 cdto에 저장 -> session 객체에 저장
 - idx 파라메터 값에 따라 해당 페이지로 redirect 방식으로 페이지 이동
 - 최종 등록 시 DB 저장되고 session의 cdto 객체는 무효화(제거)
+aaa 
  -->
 
 <%
