@@ -29,17 +29,44 @@ public class ClassFrontController extends HttpServlet {
 		Action action = null;
 		ActionForward forward = null;
 		
-		if(command.equals("/ClassAdd.cl")) {
-			System.out.println("CFC. /ClassAdd.cl 주소 호출!");
-			// 클래스 등록 페이지
+		if(command.equals("/ClassAdd1.cl")) {
+			System.out.println("CFC. /ClassAdd1.cl 주소 호출!");
+			// 클래스 등록1 페이지
 			// DB 사용 XX -> View-JSP 출력 : forward 방식
 			
 			forward = new ActionForward();
-			forward.setPath("./class/ClassAddForm1.jsp");
+			forward.setPath("./class/ClassAdd1Form.jsp");
 			// 상대 주소 ./의 의미
 				// JSP 실제 파일 : WepContent
 				// 가상 주소 : /mocaclass 프로젝트
 			forward.setRedirect(false);
+		} 
+		else if(command.equals("/ClassAdd2.cl")) {
+			System.out.println("CFC. /ClassAdd2.cl 주소 호출!");
+			
+			forward = new ActionForward();
+			forward.setPath("./class/ClassAdd2Form.jsp");
+			forward.setRedirect(false);
+		}
+		else if(command.equals("/ClassAdd3.cl")) {
+			System.out.println("CFC. /ClassAdd3.cl 주소 호출!");
+			
+			forward = new ActionForward();
+			forward.setPath("./class/ClassAdd3Form.jsp");
+			forward.setRedirect(false);
+		}
+		else if(command.equals("/ClassAddAction.cl")) {
+			System.out.println("CFC. /ClassAddAction.cl 주소 호출!");
+			// 페이지 이동, 화면 이동 -> Redirect 방식
+			
+			//  ClassAdd1Action 객체 생성
+			action = new ClassAddAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		System.out.println("CFC. 가상 주소 매핑(처리) 끝 (페이지 이동은 아직 X)");
 		// -----------------  3. 페이지 이동 ----------------------
@@ -53,7 +80,8 @@ public class ClassFrontController extends HttpServlet {
 				RequestDispatcher dis = 
 						request.getRequestDispatcher(forward.getPath());
 				dis.forward(request, response);
-				System.out.println();
+				System.out.println("CFC. 페이지 이동 완료! - forward");
+				System.out.println("CFC. 페이지 주소 : " + forward.getPath());
 			}
 		}
 		System.out.println("C. 3. 페이지 이동 끝 \n\n\n");

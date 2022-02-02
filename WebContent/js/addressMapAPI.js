@@ -55,7 +55,7 @@ function execDaumPostcode() {
             }
             
             ////////////////////////////////////////////////////////////////////////
-            /* 지도 */
+            //지도 
             // 도로명주소 받아 해당 위치 지도로 출력
             var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 		    mapOption = {
