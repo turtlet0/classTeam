@@ -2,13 +2,7 @@
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+
 <!-- 파일 업로드 처리 페이지 -->
 <%
 	request.setCharacterEncoding("UTF-8");
@@ -16,7 +10,7 @@
 	// 프로젝트 내에 만들어진 폴더(내가 직접 만듬)를 저장할 폴더(파일 데이터 저장될) 이름 변수 선언
 	String realfolder = "";
 	// 실제 만들어질 폴더명 설정(context의 메서드 통해 realfolder 변수에 저장될 예정)
-	String savefolder = "/upload";
+	String savefolder = "/attaches";
 	// 한글 인코딩 설정
 	String encType="UTF-8";
 	// 저장될 파일 사이즈 설정
@@ -39,5 +33,3 @@
 		e.printStackTrace();
 	}
 %>
-</body>
-</html>

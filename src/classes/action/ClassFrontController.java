@@ -68,6 +68,27 @@ public class ClassFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		
+		// 파일 업로드
+		else if(command.equals("/fileUpload.cl")) {
+			System.out.println("CFC. /fileUpload.cl 주소 호출!");
+		
+			forward = new ActionForward();
+			forward.setPath("./test/fileUploadAjax.jsp");
+			forward.setRedirect(false);
+		}
+		else if(command.equals("fileUploadAction.cl")) {
+			System.out.println("CFC. fileUpload.cl 주소 호출!");
+			
+			//classFileUploadAction 객체 생성
+			action = new classFileUploadAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		System.out.println("CFC. 가상 주소 매핑(처리) 끝 (페이지 이동은 아직 X)");
 		// -----------------  3. 페이지 이동 ----------------------
 		// 페이지 이동 정보가 있을 때 동작 : forward 객체 존재할때
