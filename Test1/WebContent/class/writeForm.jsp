@@ -7,6 +7,19 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h2>강의 등록</h2>
+	
+	<fieldset>
+		<legend>강의등록</legend>
+		<form action="./writePro.do" method="post" enctype="multi">
+			강의명 : <input type="text" name="className">
+			강의이미지 : <input type="text">
+			카테고리 : <input type="text" name="classCategory">
+			주소 : 
+			가격 :
+			
+		</form>
+	</fieldset>
 
 </body>
 </html>
