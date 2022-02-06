@@ -25,8 +25,7 @@ public class ClassListAction implements Action{
 		
 		forward.setPath("./class/contents.jsp");
 		forward.setRedirect(false);
-		return forward;
-		
+		return forward;	
 		
 	}
 

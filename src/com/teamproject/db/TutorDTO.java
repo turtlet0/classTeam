@@ -2,6 +2,7 @@ package com.teamproject.db;
 
 public class TutorDTO {
 	
+	
 	private String tutor_cd;
 	private String tutor_name;
 	private String tutor_member_cd;

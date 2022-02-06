@@ -8,4 +8,5 @@ public interface Action {
 	public ActionForward excute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
 	
+	
 }

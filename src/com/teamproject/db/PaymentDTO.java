@@ -2,6 +2,7 @@ package com.teamproject.db;
 
 public class PaymentDTO {
 	
+	
 	private String payment_cd;
 	private String payment_member_cd;
 	private String payment_class_cd;

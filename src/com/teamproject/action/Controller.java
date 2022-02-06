@@ -74,7 +74,6 @@ public class Controller extends HttpServlet{
 			System.out.println("!!!!!!!!!content 호출");
 			action = new ClassContentAction();
 			
-			
 			try {
 				forward = action.excute(request, response);
 			} catch (Exception e) {
@@ -82,6 +81,7 @@ public class Controller extends HttpServlet{
 			}
 		}
 		// -----------------------2. 가상 주소 매핑(처리) --------------------
+		
 		
 		// -----------------------3. 페이지 이동 ---------------------------
 		if(forward != null){

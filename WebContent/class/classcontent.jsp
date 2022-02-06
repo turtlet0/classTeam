@@ -41,7 +41,6 @@
   	ClassDTO dto = (ClassDTO) request.getAttribute("dto");
   %>
   
-  <h4>${dto }</h4>
   
   <h3>클래스 이름 : ${dto.class_name }</h3>
   <h3>클래스 날짜 : ${dto.class_date }</h3>

@@ -9,7 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<!-- 조문주 -->
+
+<!-- 메인 페이지 조문주 -->
 
 
 

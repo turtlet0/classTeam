@@ -1,7 +1,9 @@
 package com.teamproject.db;
 
 public class ClassDTO {
-
+	
+	// 클래스 DTO - 조문주
+	
 	private String class_cd;
 	private String class_name;
 	private String class_price;

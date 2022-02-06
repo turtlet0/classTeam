@@ -29,5 +29,4 @@ public class MemberLogoutAction implements Action{
 		return null;
 	}
 	
-
 }

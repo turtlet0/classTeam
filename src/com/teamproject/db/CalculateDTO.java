@@ -2,6 +2,8 @@ package com.teamproject.db;
 
 public class CalculateDTO {
 	
+	// 정산 DTO 조문주
+	
 	private String calculate_cd;
 	private String calculate_tutor_cd;
 	private String calculate_class_cd;

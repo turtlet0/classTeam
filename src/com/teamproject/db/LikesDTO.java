@@ -2,6 +2,7 @@ package com.teamproject.db;
 
 public class LikesDTO {
 	
+	
 	private String likes_cd;
 	private String likes_class_cd;
 	private String likes_member_cd;

@@ -11,7 +11,7 @@ import javax.sql.DataSource;
 
 public class CalculateDAO {
 	
-	// 정산 정보를 처리하는 DAO
+	// 정산 정보를 처리하는 DAO - 조문주
 
 	private Connection con = null;
 	private PreparedStatement pstmt = null;

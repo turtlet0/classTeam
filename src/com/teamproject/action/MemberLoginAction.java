@@ -14,8 +14,7 @@ public class MemberLoginAction implements Action{
 	@Override
 	public ActionForward excute(HttpServletRequest request, 
 			HttpServletResponse response) throws Exception {
-		
-		
+			
 		System.out.println(" M :MemberLoginAction_execute() 호출");
 		
 		// 전달된 파라메터 저장

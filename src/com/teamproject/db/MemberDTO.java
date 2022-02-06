@@ -2,6 +2,7 @@ package com.teamproject.db;
 
 public class MemberDTO {
 	
+	
 	private String member_cd;
 	private String member_id;
 	private String member_pw;
