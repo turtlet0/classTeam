@@ -2,11 +2,19 @@ package com.teamproject.action;
 
 import java.io.IOException;
 
+
+
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+
+
+
+
 
 public class Controller extends HttpServlet{
 	
@@ -29,14 +37,50 @@ public class Controller extends HttpServlet{
 		Action action = null;
 		ActionForward forward = null;
 		
-		if(command.equals("/Contents.me")){
-			System.out.println("C : /Contents.me 호출");
+		if(command.equals("/Main.me")){
+			System.out.println("C : /Main.me 호출");
+			
+			action = new ClassListAction();
+			try {
+				forward = action.excute(request, response);
+			} catch (Exception e){
+				e.printStackTrace();
+			}
+		}else if(command.equals("/MemberLogin.me")){
+			// 로그인 페이지 (view페이지로 이동)
 			
 			forward = new ActionForward();
-			forward.setPath("./board/contents.jsp");
-			forward.setRedirect(false);
+			forward.setPath("./member/login.jsp");
+			forward.setRedirect(false);			
+		}else if(command.equals("/MemberLoginAction.me")){
+			// 로그인정보를 전달받아서 처리(DB)
+			// MemberLoginAction 객체
+			action = new MemberLoginAction();
+			try {
+				forward = action.excute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/MemberLogout.me")){
+			// DB정보 X, view 페이지 X
+			// MemberLogoutAction 객체 
+			action = new MemberLogoutAction();
+			try {
+				forward = action.excute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/Contents.me")){
+			System.out.println("!!!!!!!!!content 호출");
+			action = new ClassContentAction();
+			
+			
+			try {
+				forward = action.excute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
-		
 		// -----------------------2. 가상 주소 매핑(처리) --------------------
 		
 		// -----------------------3. 페이지 이동 ---------------------------
