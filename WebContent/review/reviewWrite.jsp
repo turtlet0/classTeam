@@ -10,18 +10,28 @@
 	<h1>reviewWrite.jsp</h1>
 	<form action="./reviewWriteAction.me"  method="post">
 	<table border="1">
-	<tr>
-		<th>별점</th>
-		<td><input type="text" name="rating"></td>
-	</tr>
-	
+		<tr>
+			<th>별점</td><!-- css -->
+			<td class="left" colspan="3">
+			<select name="rating">
+				<option value="0">별점을 선택하시오</option>
+				<option value="1">1점</option>
+				<option value="2">2점</option>
+				<option value="3">3점</option>
+				<option value="4">4점</option>
+				<option value="5">5점</option>
+			</select>
+		</td>
+		</tr>
+
+
 	<tr>
 		<th colspan="1">내용</th>
 		<td colspan="3"><input type="text" name="contents"><td>
 	</tr>
 	
 	<tr>
-		<td colspan="4"><input type="submit" value="리뷰작성"> <input type="button" value="대댓작성"></td>
+		<td colspan="4"><input type="submit" value="리뷰작성"></td>
 	</tr>
 	</table>
 </form>
