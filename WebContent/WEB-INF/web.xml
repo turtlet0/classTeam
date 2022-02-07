@@ -11,13 +11,38 @@
   </welcome-file-list>
   
   <!-- ClassFrontController -->
+	<servlet>
+		<servlet-name>ClassFrontController</servlet-name>
+		<servlet-class>classes.action.ClassFrontController</servlet-class>
+	</servlet>
+  
+	<servlet-mapping>
+		<servlet-name>ClassFrontController</servlet-name>
+		<url-pattern>*.cl</url-pattern>
+	</servlet-mapping>
+	
+	<!-- partUploadPro1PopupServlet -->
   <servlet>
-  	<servlet-name>ClassFrontController</servlet-name>
-  	<servlet-class>classes.action.ClassFrontController</servlet-class>
+  	<servlet-name>partUploadPro1PopupServlet</servlet-name>
+  	<servlet-class>test.part.partUploadPro1PopupServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
-  	<servlet-name>ClassFrontController</servlet-name>
-  	<url-pattern>*.cl</url-pattern>
+  	<servlet-name>partUploadPro1PopupServlet</servlet-name>
+  	<url-pattern>/partUploadPro1Popup</url-pattern>
   </servlet-mapping>
+  
+  <!-- partUploadPro1Servlet -->
+  <servlet>
+  	<servlet-name>partUploadPro1Servlet</servlet-name>
+  	<servlet-class>test.part.partUploadPro1Servlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>partUploadPro1Servlet</servlet-name>
+  	<url-pattern>/partUploadPro1</url-pattern>
+  </servlet-mapping>
+  
+	
+
 </web-app>

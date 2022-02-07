@@ -10,10 +10,10 @@
 <form method="post" enctype="multipart/form-data" id="form">
 
 	<input type="file" name="filedata" id="imgFile" onchange="imgPreview(this);" ><br>
+</form>
 	<button type="button" onclick="uploadFunction();">이미지 파일 업로드</button><br>
 	<div id="result"></div><br>
 	<img id="img" width="150"> 
-</form>
 
 	<script type="text/javascript">
 	function uploadFunction() {

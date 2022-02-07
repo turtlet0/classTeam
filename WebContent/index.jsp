@@ -14,8 +14,9 @@ index.jsp -> web.xml (./MemberJoin.me)
 			-. action 페이지 이동 : 1. -> 2. 해당 동작 수행하는 Action 객체 생성해 객체의 메서드 호출(메서드 내에서 DB처리 동작 실행) -> 3. 반환받은 forward 객체 정보에 따라 페이지 이동
 			
 	<%
-		// response.sendRedirect("./ClassAdd1.cl");
-		response.sendRedirect("./fileUpload.cl");
+		response.sendRedirect("./ClassAdd1.cl");
 	%>		
+	
+
 </body>
 </html>
