@@ -18,8 +18,30 @@
 
 
 <!-- -------------------리뷰리스트----------------------------- -->	
-<%
-		
+<%-- <%
+		//BoardDAO객체 생성
+		ReviewDAO rdao = new ReviewDAO();
+		// 게시판 DB에 있는 글 개수를 확인
+		int cnt = rdao.getReviewCount();
+
+		/////////////////////////////////////////////////////////////////////////////
+		// 페이징 처리
+
+		// 한 페이지에 출력될 글 개수
+		int pageSize = 10;
+
+		//현 페이지 정보 설정
+		String pageNum = request.getParameter("pageNum");
+		if (pageNum == null) {
+			pageNum = "1";
+		}
+
+		//첫행번호를 계산
+		int currentPage = Integer.parseInt(pageNum);
+		int startRow = (currentPage - 1) * pageSize + 1;
+
+		////////////////////////////////////////////
+	%> --%>
 	<table border="1">
      <tr>
        <!-- <td>사진</td> -->
@@ -34,10 +56,23 @@
 <%--      ${reviewList }<br> --%>
  	<c:forEach var="dto" items="${reviewList }">
          <tr>
-	       <td>${dto.name }</td>
+         	
+	       <td>
+	       
+	       <c:if test="${dto.c_lev>0 }">
+	         		<img src="img/level.gif" height="10" width="${dto.c_lev *10 }">	
+					<img src="img/re.gif">
+			</c:if>
+			${dto.name }
+			</td>
 	       <td>${dto.regdate }</td>
 	       <td>${dto.rating }</td>
 	       <td>${dto.content }</td>
+	       <td>
+	       <c:if test="${dto.c_lev==0 }">
+	       	<input type="button" value="대댓글작성" onclick="">
+	       </c:if>
+	       </td>
 	     </tr>
      </c:forEach>
      
@@ -54,3 +89,4 @@
 	
 </body>
 </html>
+
