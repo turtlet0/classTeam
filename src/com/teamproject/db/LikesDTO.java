@@ -3,14 +3,28 @@ package com.teamproject.db;
 public class LikesDTO {
 	
 	
-	private String likes_cd;
+	private int likes_cd;
 	private String likes_class_cd;
 	private String likes_member_cd;
+	private String likes_class_name;
+	private String likes_class_date;
 	
-	public String getLikes_cd() {
+	public String getLikes_class_date() {
+		return likes_class_date;
+	}
+	public void setLikes_class_date(String likes_class_date) {
+		this.likes_class_date = likes_class_date;
+	}
+	public String getLikes_class_name() {
+		return likes_class_name;
+	}
+	public void setLikes_class_name(String likes_class_name) {
+		this.likes_class_name = likes_class_name;
+	}
+	public int getLikes_cd() {
 		return likes_cd;
 	}
-	public void setLikes_cd(String likes_cd) {
+	public void setLikes_cd(int likes_cd) {
 		this.likes_cd = likes_cd;
 	}
 	public String getLikes_class_cd() {

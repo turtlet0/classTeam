@@ -7,21 +7,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<!-- a링크 클릭시 post로 param 전송 -->
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-
-
 </head>
 <body>
-
-<!-- 메인 페이지 조문주 -->
-
-
-
-  <h1> 클래스 목록 페이지</h1>
-  <button onclick="location.href='Likes.me'">좋아요</button>
-  <br>
-  
+	<!-- 조문주 -->
+	<h1>좋아요 누른 클래스 확인 페이지</h1>
+	
   <%
   	String cd = String.valueOf(session.getAttribute("cd"));
   	
@@ -42,30 +32,23 @@
   <% 
   	}
   %>
-
-  <!-- 본문 -->
   
-  <h2>메인</h2>
   <%
-  	List classList
-  		= (List)request.getAttribute("classList");
-  
+  	List likeList = (List)request.getAttribute("likeList");
   %>
-  
-  <hr>
-  <c:forEach var="dto" items="${classList }">
-   <a href="./Contents.me?class_cd=${dto.class_cd }">
-      클래스 ${dto.class_name } </a> <br>
-      가격 ${dto.class_price } <br>
-      날짜 ${dto.class_date } <br>
-      이름 ${dto.class_tutor_name }  
-   
-   <hr>
-    
-  </c:forEach>
-  
+	<div>
+	  <div> 찜한 클래스 </div>
+	  <c:forEach var="ldto" items="${likeList }">
+	  <div style="border: 1px solid black;">
+	  	<a href=# style="text-decoration: none;">
+	  		<div> 좋아요 상태 </div>
+	  		<div> 클래스 이미지 </div>
+	  		<div> 클래스 ${ldto.likes_class_date } </div>
+	  		<div> 클래스 이름 ${ldto.likes_class_name }</div>
+	  	</a>
+	  </div>
+	  </c:forEach>
+	</div>
 
-  	
-  
 </body>
 </html>

@@ -79,6 +79,56 @@ public class Controller extends HttpServlet{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("/Payment.me")){
+			String class_cd = request.getParameter("class_cd");
+			System.out.println("######결제 호출"+class_cd);
+			
+			action = new PaymentAction();
+			
+			try {
+				forward = action.excute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/LikeUpdate.me")){
+			System.out.println("좋아요추가_action 호출");
+			
+			action = new LikeUpDateAction();
+			
+			try {
+				forward = action.excute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/LikeCount.me")){
+			System.out.println("좋아요 개수_action 호출");
+			
+			action = new LikeCountAction();
+			
+			try {
+				forward = action.excute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/Likes.me")){
+			System.out.println("좋아요 페이지_action 호출");
+			
+			action = new LikeListAction();
+			try {
+				forward = action.excute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/PaySuccess.me")){
+			System.out.println("결제 성공_action 호출");
+			
+			action = new PaySuccessAction();
+			
+			try {
+				forward = action.excute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		// -----------------------2. 가상 주소 매핑(처리) --------------------
 		

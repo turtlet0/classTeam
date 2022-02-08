@@ -6,10 +6,31 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<!-- 페이지 로딩시 좋아요 개수 출력 -->
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+  $(function(){
+	  function lcnt(){
+		  $.ajax({
+			  url: "LikeCount.me",
+			  type: "POST",
+			  data: {class_cd : ${dto.class_cd}},
+			  success: function(ccnt) {
+				  $(".like_count").html(ccnt);
+			  }
+		  
+		  })
+	  }
+	  lcnt();
+  });
+</script>
+
 </head>
 <body>
-
-  <h1> 클래스 목록 페이지</h1>
+  <!-- 좋아요/결제 조문주 -->
+  
+  <!-- 좋아요/결제 버튼 누를 수 있는 클래스 페이지 대충 구현 -->
+  <h1> 클래스 상세 페이지 </h1>
   <br>
   
   <%
@@ -25,7 +46,7 @@
   	} else {
   %>
   
-
+  
   
    세션 : ${cd }
   <button onclick="location.href='MemberLogout.me'">로그아웃</button>
@@ -47,8 +68,48 @@
   <h3>튜터 이름 : ${dto.class_tutor_name }</h3>
   <h3>클래스 가격 : ${dto.class_price }</h3>
   
-  <input type="button" value="결제" onclick="location.href='Payment.me'">
-  <input type="button" value="좋아요" onclick="location.href='Like.me'">
+  <!-- 결제 정보 넘겨줌 -->
+  <form action="Payment.me" method="post">
+    <input type="hidden" name="class_cd" value=${dto.class_cd }>
+    <input type="submit" value="결제">
+  </form>
+  
+	
+    <input type="button" value="♥" class="like_btn">
+    <span class="like_count"></span>
+
+  
+  <!-- 좋아요 클릭시 실행 -->
+  <script type="text/javascript">
+     $(function(){
+    	$(".like_btn").click(function(){
+    		var class_cd = ${dto.class_cd};
+    		
+    		$.ajax({
+    			url: "LikeUpdate.me",
+    			type: "post",
+    			data : {class_cd : class_cd},
+    			success: function(){
+    				$.ajax({
+  					  url: "LikeCount.me",
+  					  type: "POST",
+  					  data: {class_cd : ${dto.class_cd}},
+  					  success: function(ccnt) {
+  						  $(".like_count").html(ccnt);
+  					  }
+  				  
+  				  })
+    	
+    				
+    			}
+    		})
+    	})
+     });
+  </script>
+
+
+
+
 
 
 </body>

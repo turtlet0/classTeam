@@ -21,7 +21,7 @@ public class PaymentDAO {
 	// 디비연결
 	private Connection getCon() throws Exception {
 		Context initCTX = new InitialContext();
-		DataSource ds = (DataSource) initCTX.lookup("java:comp/env/jdbc/model2");
+		DataSource ds = (DataSource) initCTX.lookup("java:comp/env/jdbc/mochadb");
 		con = ds.getConnection();
 		return con;
 	}
@@ -42,4 +42,6 @@ public class PaymentDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	
 }

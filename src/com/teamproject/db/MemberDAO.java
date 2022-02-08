@@ -134,5 +134,45 @@ public class MemberDAO {
 			return dto;
 		}
 		// getMember(id)
+		
+		// getMember(id)
+				public MemberDTO getClassMember(String cd) {
+
+					MemberDTO mdto = null;
+
+					try {
+						// 1.2. 디비연결
+						con = getCon();
+						// 3. sql 작성(select) & pstmt 객체
+						// sql- 전달받은 아이디에 해당하는 회원정보 모두가져오기
+						sql = "select * from member where member_cd=?";
+						pstmt = con.prepareStatement(sql);
+
+						// ?
+						pstmt.setString(1, cd);
+
+						// 4. sql 실행
+						rs = pstmt.executeQuery();
+						// 5. 데이터처리
+						if (rs.next()) {
+							// 데이터가 있음 -> 회원정보를 저장
+							mdto = new MemberDTO();
+
+							mdto.setMember_cd(rs.getString("member_cd"));
+							mdto.setMember_id(rs.getString("member_id"));
+							
+						}
+						System.out.println(" SQL구문 실행완료! ");
+						System.out.println(" 회원정보 : " + mdto);
+
+					} catch (Exception e) {
+						e.printStackTrace();
+					} finally {
+						CloseDB();
+					}
+
+					return mdto;
+				}
+				// getMember(id)
 	
 }
