@@ -1,13 +1,15 @@
-package com.teamproject.action;
+
+package action;
 
 import java.io.PrintWriter;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.teamproject.db.MemberDAO;
-import com.teamproject.db.MemberDTO;
+import dao.MemberDAO;
+import dto.MemberDTO;
 
 public class MemberLoginAction implements Action{
 

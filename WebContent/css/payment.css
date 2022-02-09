@@ -3,7 +3,7 @@
 .section-payment { border: 3px dashed #ccc;
 margin-bottom: 4em;
 padding: 1em; overflow: hidden;}
-#section-payment>div {
+.section-payment>div {
 	width: 45%;
 	margin: 1%;
 }

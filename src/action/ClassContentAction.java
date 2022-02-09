@@ -1,12 +1,12 @@
-package com.teamproject.action;
+package action;
 
 import javax.servlet.http.HttpServletRequest;
+
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-import com.teamproject.db.ClassDAO;
-import com.teamproject.db.ClassDTO;
+import dao.ClassDAO;
+import dto.ClassDTO;
 
 public class ClassContentAction implements Action{
 

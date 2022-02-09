@@ -1,10 +1,14 @@
-package com.teamproject.action;
+package action;
 
 
 
 import javax.servlet.http.HttpServletRequest;
+
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import dao.PaymentDAO;
+import dto.PaymentDTO;
 
 public class PaySuccessAction implements Action{
 
@@ -14,15 +18,22 @@ public class PaySuccessAction implements Action{
 		
 		HttpSession session = request.getSession();
 		String cd = (String) session.getAttribute("cd");
-		String class_cd = request.getParameter("class_cd");
-		String price = request.getParameter("price");
+		int price = Integer.parseInt(request.getParameter("price"));
 		
-		System.out.println(cd);
-		System.out.println("@"+class_cd);
-		System.out.println("@@"+price);
+		
+		PaymentDTO pdto = new PaymentDTO();
+		
+		pdto.setPayment_class_cd(request.getParameter("class_cd"));
+		pdto.setPayment_member_cd(cd);
+		pdto.setPrice(price);
+		
+		PaymentDAO pdao = new PaymentDAO();
+		pdao.insertPayment(pdto);
+		
+		System.out.println(" 결제 정보 저장 완 ");
+		
 		
 		ActionForward forward = new ActionForward();
-		
 		forward.setPath("./pay/calculate.jsp");
 		forward.setRedirect(false);
 		

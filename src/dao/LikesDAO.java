@@ -1,4 +1,4 @@
-package com.teamproject.db;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,6 +10,8 @@ import java.util.List;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
+import dto.LikesDTO;
 
 public class LikesDAO {
 
@@ -190,5 +192,23 @@ public class LikesDAO {
 		}
 		System.out.println(likeList);
 		return likeList;
+	}
+	
+	// 좋아요 삭제
+	public void deleteLike(String cd){
+		try {
+			con = getCon();
+			
+			sql = "delete from likes where likes_member_cd=?";
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, cd);
+			
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally{
+			CloseDB();
+		}
 	}
 }

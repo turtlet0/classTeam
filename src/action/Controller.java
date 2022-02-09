@@ -1,20 +1,12 @@
-package com.teamproject.action;
+package action;
 
 import java.io.IOException;
-
-
-
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-
-
-
-
 
 public class Controller extends HttpServlet{
 	
@@ -47,14 +39,13 @@ public class Controller extends HttpServlet{
 				e.printStackTrace();
 			}
 		}else if(command.equals("/MemberLogin.me")){
-			// 로그인 페이지 (view페이지로 이동)
+
 			
 			forward = new ActionForward();
 			forward.setPath("./member/login.jsp");
 			forward.setRedirect(false);			
 		}else if(command.equals("/MemberLoginAction.me")){
-			// 로그인정보를 전달받아서 처리(DB)
-			// MemberLoginAction 객체
+
 			action = new MemberLoginAction();
 			try {
 				forward = action.excute(request, response);
@@ -124,6 +115,23 @@ public class Controller extends HttpServlet{
 			
 			action = new PaySuccessAction();
 			
+			try {
+				forward = action.excute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/PayCalculate.me")){
+			System.out.println("정산_action 호출");
+			
+			action = new PaymentListAction();
+			try {
+				forward = action.excute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}else if(command.equals("/LikeDelete.me")){
+			action = new LikeDeleteAction();
 			try {
 				forward = action.excute(request, response);
 			} catch (Exception e) {

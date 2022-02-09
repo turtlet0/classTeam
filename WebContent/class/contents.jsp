@@ -39,6 +39,7 @@
   
    세션 : ${cd }
   <button onclick="location.href='MemberLogout.me'">로그아웃</button>
+  <button onclick="location.href='PayCalculate.me'">정산</button>
   <% 
   	}
   %>

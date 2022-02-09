@@ -1,4 +1,4 @@
-package com.teamproject.action;
+package action;
 
 import java.io.PrintWriter;
 
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 
-import com.teamproject.db.LikesDAO;
+import dao.LikesDAO;
 
 public class LikeCountAction implements Action{
 
@@ -29,7 +29,6 @@ public class LikeCountAction implements Action{
 		
 		
 		
-		ActionForward forward = new ActionForward();
 		
 		LikesDAO ldao = new LikesDAO();
 		int ccnt = ldao.likeCount(class_cd);

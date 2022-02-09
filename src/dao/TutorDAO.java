@@ -1,4 +1,4 @@
-package com.teamproject.db;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,9 +9,9 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class CalculateDAO {
-	
-	// 정산 정보를 처리하는 DAO - 조문주
+public class TutorDAO {
+
+	// 튜터 정보를 처리하는 DAO - 조문주
 
 	private Connection con = null;
 	private PreparedStatement pstmt = null;
@@ -42,5 +42,4 @@ public class CalculateDAO {
 			e.printStackTrace();
 		}
 	}
-
 }

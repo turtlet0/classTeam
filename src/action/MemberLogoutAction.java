@@ -1,4 +1,4 @@
-package com.teamproject.action;
+package action;
 
 import java.io.PrintWriter;
 

@@ -1,14 +1,15 @@
-<%@page import="com.teamproject.db.MemberDTO"%>
-<%@page import="com.teamproject.db.ClassDTO"%>
+<%@page import="com.teamproject.dto.MemberDTO"%>
+<%@page import="com.teamproject.dto.ClassDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%String path=request.getContextPath(); %>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>결제</title>
-  <link href="../css/payment.css" rel="stylesheet">
+<link href="<%=path%>/css/payment.css" type="text/css" rel="stylesheet">
   <!-- iamport.payment.js -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
   <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
@@ -63,7 +64,7 @@
   %>
 	
 
-    <section id="section-payment"> 
+    <section class="section-payment"> 
       <h2>클래스 결제 페이지</h2>
       
       <%

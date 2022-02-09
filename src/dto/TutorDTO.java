@@ -1,4 +1,4 @@
-package com.teamproject.db;
+package dto;
 
 public class TutorDTO {
 	

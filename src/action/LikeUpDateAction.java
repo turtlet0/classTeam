@@ -1,4 +1,4 @@
-package com.teamproject.action;
+package action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -6,7 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 
-import com.teamproject.db.LikesDAO;
+import dao.LikesDAO;
 
 public class LikeUpDateAction implements Action{
 
@@ -20,7 +20,6 @@ public class LikeUpDateAction implements Action{
 
 		System.out.println("좋아요::::::::::::세션" +cd);
 		System.out.println("좋아요::::클래스:::::코드" +class_cd);
-		ActionForward forward = new ActionForward();
 		
 		
 		LikesDAO ldao = new LikesDAO();

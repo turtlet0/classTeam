@@ -1,15 +1,14 @@
-package com.teamproject.action;
+package action;
 
 import javax.servlet.http.HttpServletRequest;
+
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.json.simple.JSONObject;
-
-import com.teamproject.db.ClassDAO;
-import com.teamproject.db.ClassDTO;
-import com.teamproject.db.MemberDAO;
-import com.teamproject.db.MemberDTO;
+import dao.ClassDAO;
+import dao.MemberDAO;
+import dto.ClassDTO;
+import dto.MemberDTO;
 
 public class PaymentAction implements Action{
 

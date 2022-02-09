@@ -40,15 +40,17 @@
 	  <div> 찜한 클래스 </div>
 	  <c:forEach var="ldto" items="${likeList }">
 	  <div style="border: 1px solid black;">
-	  	<a href=# style="text-decoration: none;">
-	  		<div> 좋아요 상태 </div>
+	  	<a href="Contents.me?class_cd=${ldto.likes_class_cd }" style="text-decoration: none;">
 	  		<div> 클래스 이미지 </div>
 	  		<div> 클래스 ${ldto.likes_class_date } </div>
 	  		<div> 클래스 이름 ${ldto.likes_class_name }</div>
 	  	</a>
+
 	  </div>
 	  </c:forEach>
 	</div>
+
+
 
 </body>
 </html>
