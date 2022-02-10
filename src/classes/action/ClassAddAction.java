@@ -11,7 +11,7 @@ import classes.db.ClassDTO;
 public class ClassAddAction implements Action {
 	/*클래스 등록 1 페이지 처리 class*/
 	
-	// 추상 메서드 excute 구현
+	// 추상 메서드 execute 구현
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("CL. ClassAddAction_execute() 호출!");

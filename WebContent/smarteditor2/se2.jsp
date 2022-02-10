@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="./js/HuskyEZCreator.js"></script>
+<script type="text/javascript" src="/mocaclass/smarteditor2/js/HuskyEZCreator.js"></script>
 <script src="../js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -20,17 +20,17 @@ $(function(){
 	nhn.husky.EZCreator.createInIFrame({
 		 oAppRef: oEditors,
 		 elPlaceHolder: "ir1",
-		 sSkinURI: "./SmartEditor2Skin.html",
+		 sSkinURI: "/mocaclass/smarteditor2/SmartEditor2Skin.html",
 		 fCreator: "createSEditor2"
 		});
 		
 		
 		//저장버튼 클릭시 form 전송
-	    $("#save").click(function(){
+	   /*  $("#save").click(function(){
 	    	alert("save");
 	        oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
 	        $("#seForm").submit();
-	    });   
+	    });  */  
 });
 	 
 </script>

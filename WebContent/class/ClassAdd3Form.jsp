@@ -124,14 +124,14 @@
 	
 		<!-- 우편주소 검색 -->
 		<div>
-			<input type="text" id="postcode" placeholder="우편번호">
+			<input type="text" id="postcode" placeholder="우편번호" value="${sessionScope.cdto.postcode }">
 			<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
 			<input type="text" id="roadAddress" name="roadAddress" placeholder="도로명주소"  
 				value="${sessionScope.cdto.roadAddress }" >
-			<input type="text" id="jibunAddress" placeholder="지번주소">
+			<input type="text" id="jibunAddress" placeholder="지번주소" value="${sessionScope.cdto.jibunAddress }">
 			<span id="guide" style="color:#999;display:none"></span>
-			<input type="text" id="detailAddress" placeholder="상세주소">
-			<input type="text" id="extraAddress" placeholder="참고항목">
+			<input type="text" id="detailAddress" placeholder="상세주소" value="${sessionScope.cdto.detailAddress }">
+			<input type="text" id="extraAddress" placeholder="참고항목" value="${sessionScope.cdto.extraAddress }">
 		</div>
 		
 		<!-- 지도 -->
