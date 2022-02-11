@@ -23,14 +23,28 @@ public class ClassAddAction implements Action {
 		// 한글 처리
 		request.setCharacterEncoding("UTF-8");
 		
-		// DTO 객체
-			// 전달된 정보 저장
+		/*session 제어*/
 		HttpSession session = request.getSession(); 
-			// tip) getSession() | (true) : HttpSession 객체 기존재 시 해당 객체 가져옴. 없으면 새로 생성  
+		// tip) getSession() | (true) : HttpSession 객체 기존재 시 해당 객체 가져옴. 없으면 새로 생성  
 		// System.out.println("session is new?: "+session.isNew()); // 새로 생성된 객체인지 여부 출력
 		
+		// 로그인 여부 확인
+		String member_cd = (String) session.getAttribute("member_cd");
 		
-		/*튜터 정보 저장할 TutorDTO 객체 생성*/
+		
+		ActionForward forward;
+		if(member_cd == null) {
+			forward = new ActionForward();
+			// 로그인 X
+			forward.setPath("./Main.cl"); // 임시) 로그인 페이지로 이동해야함
+			forward.setRedirect(true);
+			return forward;
+		}
+		
+		
+		
+		
+		/*튜터 정보 저장할 TutorDTO 객체 생성 -> session에 저장*/
 		// session에 TutorDTO 객체 존재하면 해당 객체 가져오기. 없으면 새로 생성
 		TutorDTO tdto = null;
 		if(session.getAttribute("tdto") == null) {
@@ -43,7 +57,7 @@ public class ClassAddAction implements Action {
 		}
 		
 		
-		/*클래스 등록 정보 저장할 ClassDTO 객체 생성*/
+		/*클래스 등록 정보 저장할 ClassDTO 객체 생성 -> session에 저장*/
 		// session에 ClassDTO 객체 존재하면 해당 객체 가져오기. 없으면 새로 생성
 		ClassDTO cdto = null;
 		if(session.getAttribute("cdto") == null) {
@@ -188,7 +202,7 @@ public class ClassAddAction implements Action {
 		
 		if(idx == 1) {
 			// 글쓰기 등록 1페이지로 이동
-			ActionForward forward = new ActionForward();
+			forward = new ActionForward();
 			forward.setPath("./ClassAdd1.cl");
 			forward.setRedirect(true);
 			
@@ -196,7 +210,7 @@ public class ClassAddAction implements Action {
 			return forward;
 		}else if(idx == 2) {
 			// 글쓰기 등록 2페이지로 이동
-			ActionForward forward = new ActionForward();
+			forward = new ActionForward();
 			forward.setPath("./ClassAdd2.cl");
 			forward.setRedirect(true);
 			System.out.println("CA. ./ClassAdd2.cl");
@@ -204,7 +218,7 @@ public class ClassAddAction implements Action {
 			return forward;
 		} else if(idx == 3) {
 			// 클래스 등록 2 페이지로 이동
-			ActionForward forward = new ActionForward();
+			forward = new ActionForward();
 			forward.setPath("./ClassAdd3.cl");
 			forward.setRedirect(true);
 			
@@ -227,7 +241,7 @@ public class ClassAddAction implements Action {
 		
 		
 		/*페이지 이동*/
-		ActionForward forward = new ActionForward();
+		forward = new ActionForward();
 		forward.setPath("./Main.cl");
 		forward.setRedirect(true);
 		

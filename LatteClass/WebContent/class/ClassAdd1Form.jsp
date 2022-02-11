@@ -6,26 +6,27 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			alert('jquery 정상 동작');
-			
-			// category 제어
-			var category = '${sessionScope.cdto.category}';
-			$('input:radio[name=category]:radio[value='+category+']').attr('checked', true);
-			
-			
-			// subCategory 제어
-		 	$('div[name=subCategory]').attr('hidden', true);
-			$('input:radio[name=category]').on('click',function() {
-				var valueCheck = $('input:radio[name=category]:checked').val();
-				alert(valueCheck);
-			 	$('div[id='+valueCheck+']').attr('hidden', false);
-			});
-			
+<script src="${pageContext.request.contextPath}/js/classRepImgUpload.js"></script> <!-- 대표 이미지 업로드 js -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		alert('jquery 정상 동작');
 		
+		// category 제어
+		var category = '${sessionScope.cdto.category}';
+		$('input:radio[name=category]:radio[value='+category+']').attr('checked', true);
+		
+		
+		// subCategory 제어
+	 	$('div[name=subCategory]').attr('hidden', true);
+		$('input:radio[name=category]').on('click',function() {
+			var valueCheck = $('input:radio[name=category]:checked').val();
+			alert(valueCheck);
+		 	$('div[id='+valueCheck+']').attr('hidden', false);
 		});
-	</script>
+		
+	
+	});
+</script>
 </head>
 <body>
 
@@ -40,6 +41,9 @@
 
 <%
 	request.setCharacterEncoding("UTF-8");
+
+	int member_cd = 1;
+	session.setAttribute("member_cd", member_cd);
 	
 %>
 	<!-- WebContent/class/ClassAdd1Form.jsp -->
@@ -186,7 +190,19 @@
 				<div>
 					<label><b>*</b>4) 클래스 대표 이미지<span>(필수)</span></label><br>
 					<!-- Ajax 적용 예정 -->
-					<input type="file" name="class_rep_img">
+					<div>
+						<input type="hidden" id="img_idx" name="img_idx" value="classRep" >
+						<button type="button" id="imgUploadBtn">
+							<span>이미지 업로드</span><br>
+							<span>jpg, jpeg, jfif, png, bmp 확장자만 업로드 가능합니다.</span><br>
+							<span>5MB 이하 용량의 이미지만 업로드 가능합니다.</span>
+							
+							<input type="file" id="img_file" accept="image/*" hidden="hidden">
+						</button>
+						
+						<div id=imgResult></div>
+					</div>
+
 					<div>
 						<ul>
 							<b>작성 TIP</b>
