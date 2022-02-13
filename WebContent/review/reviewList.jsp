@@ -45,7 +45,7 @@
 <!-- 					<div id='editbtn'><input type='button' value="수정" id='btnUpdate' onclick="../reviewUpdate"></div> -->
 				</td>
 				<td>
-					<input type="button" value="삭제ㅡㅡ" onclick="location.href='../reviewDelete?class_cd=${requestScope.class_cd }&cno=${dto.cno }'">
+					<input type="button" value="삭제ㅡㅡ" onclick="location.href='../reviewDelete?class_cd=${requestScope.class_cd }&cno=${dto.cno }&c_ref=${dto.c_ref }&c_lev=${dto.c_lev }&c_seq=${dto.c_seq }'">
 				</td>
 <%-- 				<td><input type="button" value="삭제" id="delOk" onclick="../deleteReview?class_cd=${requestScope.class_cd}&cno=${dto.cno}"></td> --%>
 				<td>

@@ -18,6 +18,7 @@
 	
 	대<br>충<br>내<br>용<br><hr>
 	<h2><a href="./review/${param.class_cd }">리뷰</a></h2>
-	<h2><a href="./QnA?class_cd=${param.class_cd }">QnA</a></h2>
+	<h2><a href="./QnA/${param.class_cd }">QnA</a></h2>
+	
 </body>
 </html>

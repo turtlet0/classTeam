@@ -9,12 +9,16 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
   <servlet>
-    <servlet-name>ReviewController</servlet-name>
-    <servlet-class>com.latte.review.action.ReviewController</servlet-class>
+    <servlet-name>Controller</servlet-name>
+    <servlet-class>com.latte.action.Controller</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ReviewController</servlet-name>
+    <servlet-name>Controller</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+  
+
+
 </web-app>
