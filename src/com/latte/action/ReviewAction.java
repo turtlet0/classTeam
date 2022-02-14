@@ -9,8 +9,6 @@ import javax.servlet.http.HttpSession;
 import com.latte.db.ReviewDAO;
 
 
-
-
 public class ReviewAction implements Action{
 
 	@Override
@@ -36,14 +34,36 @@ public class ReviewAction implements Action{
 		
 		// DAO 객체 생성
 		ReviewDAO dao = new ReviewDAO();
-		
 		System.out.println("실행됨 "+ class_cd);
+		
 		// 게시판 리스트뿌리기
 		request.setAttribute("class_cd", class_cd);
 		request.setAttribute("reviewList", dao.getReviewList(class_cd));
-		System.out.println("실행됨");
+		int cnt=dao.getReviewCount(class_cd);
+		request.setAttribute("cnt", cnt);
+		//페이징
+		int pageSize=5;
+		String pageNum= request.getParameter("pageNum");
+		if(pageNum == null){
+			pageNum="1";
+		}
+		int currentPage= Integer.parseInt(pageNum);
+		int startRow=(currentPage-1)*pageSize+1;
+		request.setAttribute("cntReviewList", dao.getCntReviewList(startRow, pageSize,class_cd));
+		//페이징끝
 		
+		//밑에 페이징 시작
+		int pageCount=cnt/pageSize + (cnt%pageSize==0? 0: 1);
+		int pageBlock = 5;
+		int startPage = ((currentPage-1)/pageBlock)*pageBlock+1;
+		int endPage = startPage + pageBlock-1;
+		request.setAttribute("pageCount", pageCount);
+		request.setAttribute("pageBlock", pageBlock);
+		request.setAttribute("startPage", startPage);
+		request.setAttribute("endPage", endPage);
+		//밑에 페이징 끝
 		
+		System.out.println("실행됨 ReviewAction");
 //		// review.jsp
 		forward.setPath("../review/reviewList.jsp");
 		forward.setRedirect(false);

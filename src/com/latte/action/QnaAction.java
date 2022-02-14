@@ -32,13 +32,36 @@ public class QnaAction implements Action{
 		
 		// DAO 객체 생성
 		QnaDAO dao = new QnaDAO();
-
 		System.out.println("실행됨 " + class_cd);
+
 		// 게시판 리스트뿌리기
 		request.setAttribute("class_cd", class_cd);
 		request.setAttribute("qnaList", dao.getQnaList(class_cd));
+		int cnt=dao.getQnaCount(class_cd);
+		request.setAttribute("cnt", cnt);
+		// 페이징
+		int pageSize = 5;
+		String pageNum = request.getParameter("pageNum");
+		if (pageNum == null) {
+			pageNum = "1";
+		}
+		int currentPage = Integer.parseInt(pageNum);
+		int startRow = (currentPage - 1) * pageSize + 1;
+		request.setAttribute("cntQnaList", dao.getCntQnaList(startRow, pageSize, class_cd));
+		// 페이징끝
 		System.out.println("실행됨");
 
+		// 밑에 페이징 시작
+		int pageCount = cnt / pageSize + (cnt % pageSize == 0 ? 0 : 1);
+		int pageBlock = 5;
+		int startPage = ((currentPage - 1) / pageBlock) * pageBlock + 1;
+		int endPage = startPage + pageBlock - 1;
+		request.setAttribute("pageCount", pageCount);
+		request.setAttribute("pageBlock", pageBlock);
+		request.setAttribute("startPage", startPage);
+		request.setAttribute("endPage", endPage);
+		// 밑에 페이징 끝
+		
 		// // review.jsp
 		forward.setPath("../QnA/qnaList.jsp");
 		forward.setRedirect(false);

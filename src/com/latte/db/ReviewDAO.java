@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -202,7 +203,7 @@ public class ReviewDAO {
 	
 	
 	
-	// getreviewList//////////////////////////////////////////수정예정
+	// getreviewList
 	public ArrayList getReviewList(int num) {
 		// 가변길이 배열
 		ArrayList reviewList = new ArrayList();
@@ -325,5 +326,72 @@ public class ReviewDAO {
 		return rdto;
 	}
 	// getReview
+	
+	// getReviewCount
+	public int getReviewCount(int class_cd) {
+		int cnt = 0;
+		try {
+			con = getCon();
+			sql = "select count(*) from review where class_cd=?";
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, class_cd);
+			
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				cnt = rs.getInt(1);
+
+			}
+			System.out.println("총 " + cnt + "개의 글");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			CloseDB();
+		}
+		return cnt;
+	}
+	// getReviewCount
+	
+	// getReviewList(startRow, pageSize)
+	public List getCntReviewList(int startRow, int pageSize,int class_cd) {
+		List reviewList = new ArrayList();
+
+		try {
+			con = getCon();
+			sql = "select * from review where class_cd=? order by c_ref desc, c_seq asc limit ?,?";
+			pstmt = con.prepareStatement(sql);
+
+			pstmt.setInt(1, class_cd);
+			pstmt.setInt(2, startRow - 1); // 시작행 -1 (시작 row인덱스 번호)
+			pstmt.setInt(3, pageSize); // 페이지크기( 한번에 출력되는 수)
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				ReviewDTO dto = new ReviewDTO();
+				dto.setC_lev(rs.getInt("c_lev"));
+				dto.setC_ref(rs.getInt("c_ref"));
+				dto.setC_seq(rs.getInt("c_seq"));
+				dto.setClass_cd(rs.getInt("class_cd"));
+				dto.setContent(rs.getString("content"));
+				dto.setMember_cd(rs.getInt("member_cd"));
+				dto.setRating(rs.getString("rating"));
+				dto.setReg_date(rs.getTimestamp("reg_date"));
+				dto.setCno(rs.getInt("cno"));
+				
+				reviewList.add(dto);
+			} // while
+
+			System.out.println("글정보저장완료 " + reviewList.size());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			CloseDB();
+		}
+		return reviewList;
+	}
+	// getReviewList(startRow, pageSize)
 	
 }

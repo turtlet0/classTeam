@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -197,7 +198,7 @@ public class QnaDAO {
 	}
 	// reDeleteQna
 
-	// getreviewList//////////////////////////////////////////수정예정
+	// getQnaList
 	public ArrayList getQnaList(int num) {
 		// 가변길이 배열
 		ArrayList qnaList = new ArrayList();
@@ -235,7 +236,7 @@ public class QnaDAO {
 		}
 		return qnaList;
 	}
-	// getreviewList
+	// getqnaList
 
 	// reinsertQna(rdto)
 	public void reInsertQna(QnaDTO dto) {
@@ -316,9 +317,75 @@ public class QnaDAO {
 		}
 
 		return qdto;
-		}
-		// getQna
+	}
+
+	// getQna
 	
+	// getQnaCount
+	public int getQnaCount(int class_cd) {
+		int cnt = 0;
+		try {
+			con = getCon();
+			sql = "select count(*) from QnA where class_cd=?";
+			pstmt = con.prepareStatement(sql);
+
+			pstmt.setInt(1, class_cd);
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				cnt = rs.getInt(1);
+
+			}
+			System.out.println("총 " + cnt + "개의 글");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			CloseDB();
+		}
+		return cnt;
+	}
+	// getQnaCount
+
+	// getQnaList(startRow, pageSize)
+	public List getCntQnaList(int startRow, int pageSize, int class_cd) {
+		List qnaList = new ArrayList();
+
+		try {
+			con = getCon();
+			sql = "select * from QnA where class_cd=? order by q_ref desc, q_seq asc limit ?,?";
+			pstmt = con.prepareStatement(sql);
+
+			pstmt.setInt(1, class_cd);
+			pstmt.setInt(2, startRow - 1); // 시작행 -1 (시작 row인덱스 번호)
+			pstmt.setInt(3, pageSize); // 페이지크기( 한번에 출력되는 수)
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				QnaDTO dto = new QnaDTO();
+				dto.setQ_lev(rs.getInt("q_lev"));
+				dto.setQ_ref(rs.getInt("q_ref"));
+				dto.setQ_seq(rs.getInt("q_seq"));
+				dto.setClass_cd(rs.getInt("class_cd"));
+				dto.setContent(rs.getString("content"));
+				dto.setMember_cd(rs.getInt("member_cd"));
+				dto.setReg_date(rs.getTimestamp("reg_date"));
+				dto.setQno(rs.getInt("qno"));
+
+				qnaList.add(dto);
+			} // while
+
+			System.out.println("글정보저장완료 " + qnaList.size());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			CloseDB();
+		}
+		return qnaList;
+	}
+	// getQnaList(startRow, pageSize)
 	
 	
 	
