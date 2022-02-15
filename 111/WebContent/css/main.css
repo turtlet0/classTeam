@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+
+/* MainBody */
+#body{
+	display:-webkit-flex; 
+	display:flex;
+	flex-direction: column;
+	width: 1200px;
+	margin: 0 auto;
+}
+.main{
+	min-height:800px;
+	width: 1200px;
+	margin: 0 auto;
+	background-color:#F5F5DC;
+}
+.mainBannerImg{
+	height:300px;
+	background-color:#5F9EA0;
+}
+.classSearch{
+	height:150px;
+	background-color:#F0FFF0;
+}
