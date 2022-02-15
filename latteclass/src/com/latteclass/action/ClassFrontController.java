@@ -93,20 +93,6 @@ public class ClassFrontController extends HttpServlet{
 				e.printStackTrace();
 			}
 				
-		}else if(command.equals("/classcontent.do")) {
-			System.out.println(" C : /classcontent.do 호출");
-
-			// DB정보를 가져와서, 해당 view페이지 출력
-			
-			// ContentAction() 객체 생성
-			action = new ContentAction();
-			
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
 		}else if(command.equals("/classfiledown.do")) {
 			System.out.println("C : /classfiledown.do 호출");
 			
