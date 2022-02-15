@@ -85,10 +85,10 @@
 }
 
 #page_control {
-	width:100%;
 	text-align: center;
-	margin-right: auto;
-	margin-left: auto;
+	width:100%;
+	height:70px;
+	margin: auto;
 }
 
 #page_control a {
