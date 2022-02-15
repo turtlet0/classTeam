@@ -18,30 +18,21 @@ header{
 	height:70px;
 	line-height: 70px;
 }
-
 .hLogo{
 	font-size: 25px; color: #FF8C00; font-weight: 700; 
-	width: 20%;
+	width: 200px;
 }
 .hLogo:HOVER{
 	color: #fd5200;
 }
-#hsearch{
-	width: 25%;
-	border: 2px solid #FF8C00;
-	border-radius:20px;
-	margin-top:20px;
-}
-#hsearch:FOCUS{
-	outline-color: #FF8C00;
-}
+
 .hRight{
 	position: absolute;
 	right: 0; top:0;
 	display:-webkit-flex; /* 웹키트 전용 접두사 */
 	display:flex;
 	justify-content:flex-end;
-	width: 35%;
+	width: 400px;
 	height: 70px;  
 }
 .hClassOpen{
@@ -117,7 +108,6 @@ footer{
 	margin: 0 auto;
 	display:-webkit-flex; 
 	display:flex;
-
 }
 .fLogo{
 	width: 25%;

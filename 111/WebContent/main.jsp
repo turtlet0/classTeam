@@ -11,6 +11,7 @@
 	<link href="<%=path%>/css/reset.css" type="text/css" rel="stylesheet">
 	<link href="<%=path%>/css/main.css" type="text/css" rel="stylesheet">
 	<link href="<%=path%>/css/headerFooter.css" type="text/css" rel="stylesheet">
+	<link href="<%=path%>/css/headerSearchBar.css" type="text/css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 	
 </head>

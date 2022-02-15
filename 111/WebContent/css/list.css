@@ -1,6 +1,10 @@
 @CHARSET "UTF-8";
 
-
+#listBody{
+	width: 1200px;
+	margin: 0 auto;
+	min-height: 800px;
+}
 .classlist{
 	width:100%;
     padding-top:70px;

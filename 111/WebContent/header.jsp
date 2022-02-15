@@ -5,12 +5,12 @@
 	String member_cd=(String)session.getAttribute("member_cd");
 %>
 
-
-<<jsp:include page="list.jsp"></jsp:include>
 		<header>
 			<section class="headerWrap">
-				<div class="hLogo" ><a class="hLogo" href="./Main.me">(img) Latte Class</a></div>
-				<input id ="hsearch" type="search" placeholder="주변의 다양한 클래스를 찾아보세요!">
+				<div class="hLogo" ><a class="hLogo" href="./Main.me">Latte Class</a></div>
+				<div class="searchbox">
+					<jsp:include page="/inc/headerSearchBar.jsp"></jsp:include>
+				</div>
 				<div class="hRight">
 					<div class ="hClassOpen"><a href=#>나만의 클래스 오픈하기</a></div>
 					<%if(member_cd == null){%>
