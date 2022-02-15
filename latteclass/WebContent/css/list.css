@@ -1,0 +1,106 @@
+@CHARSET "UTF-8";
+
+
+.classlist{
+	width:100%;
+    padding-top:70px;
+    padding-bottom:70px;
+}
+
+.classlist .container{
+    max-width: 1200px;
+    margin:auto;
+}
+
+.classlist .container .noresult {
+	width:280px;
+	height: 200px;
+	text-align: center;
+	margin: auto;
+}
+
+.classlist .container .title ul{
+    padding-left: 0;
+    list-style: none; /* ul의 li를 점을 없애줍니다 */
+}
+
+.classlist .container .title ul li{
+    display: inline; /* ul의 li를 가로로 정렬 해줍니다 */
+    margin-right: 30px;
+}
+
+.classlist .container .title ul li a{
+    text-decoration: none;
+    color: #444;
+}
+
+.classlist .container .item_list{
+    display: inline-grid;
+    grid-template-rows: repeat(3, 360px;);
+  	grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: auto auto auto auto;
+  	grid-gap: 10px;
+}
+
+.classlist .container .item_list .card{
+    border: 1px solid #eee; /* 테두리를 1px 실선의 #eee 색상으로 */
+    border-radius: 5px; /* 모서리를 5px 만큼 둥글게 */
+    height: 350px;
+    width: 280px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.classlist .container .item_list .card img{
+    height: 200px;
+    width: 280px
+} 
+
+.classlist .container .item_list .card .text p{
+	text-align: right;
+    font-size: 16px;
+    opacity: .8;
+    font-weight: bold;
+}
+
+.classlist .container .item_list .card .text button{
+    background: #fceada;
+    color:orange;
+    font-weight:bold;
+    border:2px solid white; /* 테두리를 정의 합니다 // border:두께 형태 색상 */
+    border-radius:5px; /* 테두리를 둥글게 바꿔줍니다 */
+    padding:5px 10px;
+    font-size:12px;
+    transition: .5s ease; 
+}
+
+.classlist .container .item_list .card .text button:hover{
+    transition: .5s ease;
+    border:2px solid black;
+    background: transparent;
+    color:black;
+}
+.green {
+	color: green;
+}
+
+#page_control {
+	width:100%;
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#page_control a {
+	padding: 2px 5px;
+	text-decoration: none;
+	color: #333;
+	margin: 0 5px;
+}
+
+#page_control a:hover {
+	font-weight: bold;
+	color: #F90;
+	text-decoration: underline;
+}
+
