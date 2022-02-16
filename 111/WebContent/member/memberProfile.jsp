@@ -19,6 +19,7 @@
 		}
 		MemberDTO dto = (MemberDTO) request.getAttribute("dto");
 	%>
+	<jsp:include page="/header.jsp"/>
 	<div class="body">
 		<section>
 			<div>프로필</div>
