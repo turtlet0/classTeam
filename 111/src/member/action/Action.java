@@ -1,4 +1,4 @@
-package com.latteclass.member.action;
+package member.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -1,4 +1,4 @@
-package com.latteclass.member.action;
+package member.action;
 
 // 페이지를 이동할때 필요한 정보를 저장하는 객체
 // 1) 페이지 이동정보(주소)

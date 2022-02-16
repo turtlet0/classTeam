@@ -9,6 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="<%=path%>/css/reset.css" type="text/css" rel="stylesheet">
 	<link href="<%=path%>/css/headerFooter.css" type="text/css" rel="stylesheet">
+	<link href="<%=path%>/css/headerSearchBar.css" type="text/css" rel="stylesheet">
 	<link href="<%=path%>/css/member.css" type="text/css" rel="stylesheet">
 
 <!-- JQuery 연동 --> 

@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
-.searchbox{
-  width: 600px;
-}
+
 .header{
-  overflow: hidden;
-  width: 600px;
+	overflow: hidden;
+	width: 600px;
+	height:70px;
+	line-height: 70px;
 }
 #value{
   border: 2px solid #FF8C00;

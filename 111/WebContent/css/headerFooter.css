@@ -25,6 +25,9 @@ header{
 .hLogo:HOVER{
 	color: #fd5200;
 }
+.searchbox{
+  width: 600px;
+}
 
 .hRight{
 	position: absolute;

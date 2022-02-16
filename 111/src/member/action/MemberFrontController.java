@@ -1,4 +1,4 @@
-package com.latteclass.member.action;
+package member.action;
 
 import java.io.IOException;
 
